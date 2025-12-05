@@ -3,7 +3,7 @@ import random
 import math
 
 class RRTGraph:
-    def __init__(self, start, end, map_dimensions, matrix, step_size=30, search_radius=50):
+    def __init__(self, start, end, map_dimensions, matrix, step_size=20, search_radius=60):
         self.start = start
         self.end = end
         self.map_w, self.map_h = map_dimensions
