@@ -1,0 +1,3 @@
+pathfinder==1.0.1
+pathfinding==1.0.18
+pygame==2.6.1
