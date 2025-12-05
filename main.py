@@ -1,3 +1,5 @@
+# main.py en üstüne:
+__version__ = "1.0.0"
 import pygame, sys
 from src.utils import create_matrix_from_image
 from src.pathfinder_manager import Pathfinder
