@@ -1,111 +1,101 @@
 # 🤖 Roomba Pathfinding AI Simulator
 
-Bu proje, Python ve Pygame kullanılarak geliştirilmiş kapsamlı bir **Otonom Yol Bulma (Pathfinding)** simülasyonudur. Proje, **A\***, **RRT** ve **RRT\*** gibi popüler algoritmaları görselleştirerek, statik bir harita üzerinde bir robotun (Roomba) hedefe ulaşmasını simüle eder.
+This project is a comprehensive **Autonomous Pathfinding** simulation developed using Python and Pygame. It visualizes popular algorithms like **A\***, **RRT**, and **RRT\***, simulating a robot (Roomba) navigating a static map to reach a target.
 
-## 🌟 Özellikler
+## 🌟 Features
 
-* **Çoklu Algoritma Desteği:** A* (A-Star), RRT ve RRT* algoritmaları arasında anlık geçiş.
-* **Görüntü İşleme Tabanlı Harita:** Herhangi bir siyah-beyaz resmi (`map.png`) otomatik olarak engeller matrisine dönüştürür.
-* **Dahili Harita Editörü:** Kendi haritalarınızı çizip kaydedebileceğiniz entegre araç.
-* **Geçmiş (History) Sistemi:** Çizilen rotaları JSON formatında kaydeder ve görsel bir arayüz ile tekrar oynatmanızı sağlar.
-* **Dinamik UI:** Yan panel menüsü ile geçmiş rotalar arasında gezinme ve detayları görme imkanı.
+* **Multi-Algorithm Support:** Switch between A\* (A-Star), RRT, and RRT\* algorithms.
+* **Image Processing-Based Map:** Automatically converts any black-and-white image (`map.png`) into an obstacle matrix.
+* **Built-in Map Editor:** Create and save custom maps with an integrated tool.
+* **History System:** Saves drawn paths in JSON format and allows replaying them via a visual interface.
+* **Dynamic UI:** Side panel menu for browsing past routes and viewing details.
 
----
+## 🚀 Installation
 
-## 🚀 Kurulum
+Requires Python 3.x and necessary libraries.
 
-Projeyi çalıştırmak için Python 3.x ve gerekli kütüphanelerin yüklü olması gerekir.
-
-1.  **Depoyu Klonlayın:**
+1. **Clone the Repository:**
     ```bash
-    git clone [https://github.com/poqob/roomba-pathfinder.git](https://github.com/poqob/roomba-pathfinder.git)
+    git clone https://github.com/poqob/roomba-pathfinder.git
     cd roomba-pathfinder
     ```
 
-2.  **Gereksinimleri Yükleyin:**
+2. **Install Requirements:**
     ```bash
     pip install -r requirements.txt
     ```
 
-3.  **Uygulamayı Başlatın:**
+3. **Run the Application:**
     ```bash
     python main.py
     ```
 
----
+## 🎮 Usage and Controls
 
-## 🎮 Kullanım ve Kontroller
+The simulation starts with A\* algorithm selected.
 
-Simülasyon açıldığında varsayılan olarak A* algoritması seçilidir.
-
-| Tuş | Eylem | Açıklama |
+| Key | Action | Description |
 | :--- | :--- | :--- |
-| **Sol Tık** | Hedef Belirleme | Hedef noktayı seçer ve yolu hesaplar. |
-| **1** | A* Modu | A* algoritmasına geçer (Grid tabanlı, en kısa yol). |
-| **2** | RRT Modu | RRT algoritmasına geçer (Rastgele ağaç, hızlı keşif). |
-| **3** | RRT* Modu | RRT* algoritmasına geçer (Optimize edilmiş ağaç). |
-| **H** | Geçmiş Paneli | Geçmiş (History) panelini açar/kapatır. |
-| **Sol/Sağ Ok**| Gezinme | Geçmiş kayıtları arasında gezilir (History modu açıkken). |
+| **Left Click** | Set Target | Selects target point and calculates path. |
+| **1** | A\* Mode | Switches to A\* algorithm (grid-based, shortest path). |
+| **2** | RRT Mode | Switches to RRT algorithm (random tree, fast exploration). |
+| **3** | RRT\* Mode | Switches to RRT\* algorithm (optimized tree). |
+| **H** | History Panel | Toggles history panel. |
+| **Left/Right Arrow**| Navigation | Browse history records (when history mode is active). |
 
----
+## 🧠 Algorithms
 
-## 🧠 Algoritmalar
+### 1. A\* (A-Star) Algorithm
+Grid-based, guarantees shortest path from start to target. Moves cell-by-cell, drawing optimal path around obstacles.
 
-### 1. A* (A-Star) Algoritması
-Grid (ızgara) tabanlı çalışır. Başlangıçtan hedefe olan en kısa yolu garanti eder. Kare kare ilerler ve engellerin etrafından en optimum yolu çizer.
-
-![A* Algoritması](presentation/astar_demo.png)
+![A\* Algorithm](https://raw.githubusercontent.com/poqob/Python-Pathfinder/refs/heads/main/presentation/a_star.png)
 
 ### 2. RRT (Rapidly-exploring Random Tree)
-Örnekleme (sampling) tabanlıdır. Rastgele noktalar seçerek hızla bir ağaç oluşturur. Yolu bulur ancak yol genellikle zikzaklıdır ve en kısa yol garantisi yoktur. Geniş alanlarda hızlı sonuç verir.
+Sampling-based, builds a tree by selecting random points. Finds a path but it's often zigzagged and doesn't guarantee shortest path. Fast in large spaces.
 
-![RRT Algoritması](presentation/rrt_demo.png)
+![RRT Algorithm](https://raw.githubusercontent.com/poqob/Python-Pathfinder/refs/heads/main/presentation/rtt.png)
 
-### 3. RRT* (RRT Star)
-RRT'nin optimize edilmiş versiyonudur. Yeni eklenen düğümler, komşularını kontrol ederek yolu kısaltacak bir bağlantı (rewiring) arar. Süre arttıkça yol düzleşir ve optimale yaklaşır.
+### 3. RRT\* (RRT Star)
+Optimized version of RRT. New nodes check neighbors for possible rewiring, smoothing the path over time.
 
-![RRT* Algoritması](presentation/rrt_star_demo.png)
+![RRT\* Algorithm](https://raw.githubusercontent.com/poqob/Python-Pathfinder/refs/heads/main/presentation/rrt_star.png)
 
----
+## 🛠 Tools
 
-## 🛠 Araçlar
+### 🗺️ Map Editor
+Run `map_creator.py` to create custom maps.
+* **Left Click:** Draw walls.
+* **Right Click:** Erase.
+* **Save:** Saves as `assets/map.png`.
 
-### 🗺️ Harita Editörü
-Kendi seviyelerinizi oluşturmak için `map_creator.py` dosyasını çalıştırın.
-* **Sol Tık:** Duvar Çizer.
-* **Sağ Tık:** Siler.
-* **Kaydet:** `assets/map.png` olarak kaydeder.
+![Map Editor](https://raw.githubusercontent.com/poqob/Python-Pathfinder/refs/heads/main/presentation/map_create.png)
 
-![Harita Editörü](presentation/map_editor.png)
+### 📜 History and Log System
+Each successful path calculation is saved in `history.json`. Press **'H'** to open the side panel and view past attempts, algorithms used, and timestamps.
 
-### 📜 Geçmiş ve Log Sistemi
-Her başarılı rota hesaplaması `history.json` dosyasına kaydedilir. **'H'** tuşuna basarak yan paneli açabilir ve önceki denemelerinizi, hangi algoritmanın kullanıldığını ve zaman damgasını görebilirsiniz.
+![History Panel](https://raw.githubusercontent.com/poqob/Python-Pathfinder/refs/heads/main/presentation/history.png)
 
-![Geçmiş Paneli](presentation/history_ui.png)
-
----
-
-## 📂 Proje Yapısı
+## 📂 Project Structure
 
 ```text
 ../
-├── assets/                 # Görsel materyaller ve haritalar
+├── assets/                 # Visual assets and maps
 │   ├── map.png
 │   ├── roomba.png
 │   └── ...
-├── src/                    # Kaynak kodlar
-│   ├── history_manager.py  # JSON okuma/yazma işlemleri
-│   ├── pathfinder_manager.py # Algoritma yönetim merkezi
-│   ├── romba_sprite.py     # Robot hareket fiziği
-│   ├── rrt_algorithms.py   # RRT ve RRT* implementasyonu
-│   ├── ui_manager.py       # Arayüz çizim işlemleri
-│   └── utils.py            # Görüntü işleme araçları
-├── presentation/           # README ekran görüntüleri
+├── src/                    # Source code
+│   ├── history_manager.py  # JSON read/write operations
+│   ├── pathfinder_manager.py # Algorithm management
+│   ├── romba_sprite.py     # Robot movement physics
+│   ├── rrt_algorithms.py   # RRT and RRT\* implementation
+│   ├── ui_manager.py       # UI drawing
+│   └── utils.py            # Image processing tools
+├── presentation/           # README screenshots
 │   ├── demo.gif
 │   ├── astar_demo.png
 │   ├── rrt_demo.png
 │   └── ...
-├── history.json            # Kayıt dosyası
-├── main.py                 # Ana çalışma dosyası
-├── map_creator.py          # Harita oluşturucu
-└── requirements.txt        # Kütüphane gereksinimleri
+├── history.json            # Log file
+├── main.py                 # Main execution file
+├── map_creator.py          # Map creator tool
+└── requirements.txt        # Library requirements
