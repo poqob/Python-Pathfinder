@@ -48,17 +48,17 @@ The simulation starts with A\* algorithm selected.
 ### 1. A\* (A-Star) Algorithm
 Grid-based, guarantees shortest path from start to target. Moves cell-by-cell, drawing optimal path around obstacles.
 
-![A\* Algorithm](https://raw.githubusercontent.com/poqob/Python-Pathfinder/refs/heads/main/presentation/a_star.png)
+![A\* Algorithm](https://github.com/poqob/Python-Pathfinder/raw/main/presentation/a_star.png)
 
 ### 2. RRT (Rapidly-exploring Random Tree)
 Sampling-based, builds a tree by selecting random points. Finds a path but it's often zigzagged and doesn't guarantee shortest path. Fast in large spaces.
 
-![RRT Algorithm](https://raw.githubusercontent.com/poqob/Python-Pathfinder/refs/heads/main/presentation/rtt.png)
+![RRT Algorithm](https://github.com/poqob/Python-Pathfinder/raw/main/presentation/rtt.png)
 
 ### 3. RRT\* (RRT Star)
 Optimized version of RRT. New nodes check neighbors for possible rewiring, smoothing the path over time.
 
-![RRT\* Algorithm](https://raw.githubusercontent.com/poqob/Python-Pathfinder/refs/heads/main/presentation/rrt_star.png)
+![RRT\* Algorithm](https://github.com/poqob/Python-Pathfinder/raw/main/presentation/rrt_star.png)
 
 ## 🛠 Tools
 
@@ -68,12 +68,12 @@ Run `map_creator.py` to create custom maps.
 * **Right Click:** Erase.
 * **Save:** Saves as `assets/map.png`.
 
-![Map Editor](https://raw.githubusercontent.com/poqob/Python-Pathfinder/refs/heads/main/presentation/map_create.png)
+![Map Editor](https://github.com/poqob/Python-Pathfinder/raw/main/presentation/map_create.png)
 
 ### 📜 History and Log System
 Each successful path calculation is saved in `history.json`. Press **'H'** to open the side panel and view past attempts, algorithms used, and timestamps.
 
-![History Panel](https://raw.githubusercontent.com/poqob/Python-Pathfinder/refs/heads/main/presentation/history.png)
+![History Panel](https://github.com/poqob/Python-Pathfinder/raw/main/presentation/history.png)
 
 ## 📂 Project Structure
 
